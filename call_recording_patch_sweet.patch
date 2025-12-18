@@ -1,0 +1,38 @@
+From 0336f36bfb0495b1e9dcce7a5dca6f550dcf6ee5 Mon Sep 17 00:00:00 2001
+From: Omkar Chandorkar <gotenksIN@aosip.dev>
+Date: Thu, 18 Dec 2025 15:31:46 +0000
+Subject: [PATCH] sweet: Enable Google Dialer call recording feature
+
+Signed-off-by: K R I S H N A <krishnakripa34567@gmail.com>
+---
+ device.mk                                                    | 4 ++++
+ ...gle.android.apps.dialer.call_recording_audio.features.xml | 5 +++++
+ 2 files changed, 9 insertions(+)
+ create mode 100644 permissions/com.google.android.apps.dialer.call_recording_audio.features.xml
+
+diff --git a/device.mk b/device.mk
+index 8760e88..0dc4ef3 100644
+--- a/device.mk
++++ b/device.mk
+@@ -35,6 +35,10 @@ PRODUCT_PACKAGES += \
+ # Dolby
+ TARGET_USES_DOLBY := true
+ 
++# Google Dialer Call recording
++PRODUCT_COPY_FILES += \
++    $(LOCAL_PATH)/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml
++
+ # Init scripts
+ PRODUCT_COPY_FILES += \
+     $(LOCAL_PATH)/rootdir/etc/init.sweet.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.sweet.rc
+diff --git a/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml b/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml
+new file mode 100644
+index 0000000..2673d8d
+--- /dev/null
++++ b/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml
+@@ -0,0 +1,5 @@
++<?xml version="1.0" encoding="utf-8"?>
++<permissions>
++    <!-- Feature for Google Dialer Call Recording -->
++    <feature name="com.google.android.apps.dialer.call_recording_audio" />
++</permissions>
