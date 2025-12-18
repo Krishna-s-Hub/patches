@@ -1,0 +1,38 @@
+From a0f3f4dd8f3f8fb395b8b38c770677d2a64ecdf3 Mon Sep 17 00:00:00 2001
+From: Omkar Chandorkar <gotenksIN@aosip.dev>
+Date: Thu, 18 Dec 2025 15:50:44 +0000
+Subject: [PATCH] avalon: Enable Google Dialer call recording feature
+
+Signed-off-by: K R I S H N A <krishnakripa34567@gmail.com>
+---
+ device.mk                                                    | 4 ++++
+ ...gle.android.apps.dialer.call_recording_audio.features.xml | 5 +++++
+ 2 files changed, 9 insertions(+)
+ create mode 100644 permissions/com.google.android.apps.dialer.call_recording_audio.features.xml
+
+diff --git a/device.mk b/device.mk
+index 1af9f6e..b71b0fb 100644
+--- a/device.mk
++++ b/device.mk
+@@ -24,6 +24,10 @@ TARGET_SCREEN_WIDTH := 1240
+ PRODUCT_COPY_FILES += \
+     $(LOCAL_PATH)/configs/display/displayconfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_4630947214369728643.xml
+ 
++# Google Dialer Call recording
++PRODUCT_COPY_FILES += \
++    $(LOCAL_PATH)/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml
++
+ # IR
+ $(call inherit-product-if-exists, vendor/oneplus/ir/ir.mk)
+ 
+diff --git a/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml b/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml
+new file mode 100644
+index 0000000..2673d8d
+--- /dev/null
++++ b/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml
+@@ -0,0 +1,5 @@
++<?xml version="1.0" encoding="utf-8"?>
++<permissions>
++    <!-- Feature for Google Dialer Call Recording -->
++    <feature name="com.google.android.apps.dialer.call_recording_audio" />
++</permissions>
