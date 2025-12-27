@@ -1,4 +1,4 @@
-From 6bfb5abfa5db1522c6fd8000cbd8ef46a5748268 Mon Sep 17 00:00:00 2001
+From fec8b60f3d1667b7a667bb3d0d245aa40406e947 Mon Sep 17 00:00:00 2001
 From: Omkar Chandorkar <gotenksIN@aosip.dev>
 Date: Thu, 18 Dec 2025 15:31:46 +0000
 Subject: [PATCH] sweet: Enable Google Dialer call recording feature
@@ -11,12 +11,12 @@ Signed-off-by: K R I S H N A <krishnakripa34567@gmail.com>
  create mode 100644 permissions/com.google.android.apps.dialer.call_recording_audio.features.xml
 
 diff --git a/device.mk b/device.mk
-index 4686d1d7..d63ecc06 100644
+index 1f6e342..6b4d90a 100644
 --- a/device.mk
 +++ b/device.mk
-@@ -32,6 +32,10 @@ PRODUCT_COPY_FILES += \
+@@ -44,6 +44,10 @@ TARGET_USES_DOLBY := true
  PRODUCT_PACKAGES += \
-     hwcomposer.sweet
+     DSPVolumeSynchronizer
  
 +# Google Dialer Call recording
 +PRODUCT_COPY_FILES += \
@@ -27,7 +27,7 @@ index 4686d1d7..d63ecc06 100644
      $(LOCAL_PATH)/rootdir/etc/init.sweet.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.sweet.rc
 diff --git a/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml b/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml
 new file mode 100644
-index 00000000..2673d8d5
+index 0000000..2673d8d
 --- /dev/null
 +++ b/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml
 @@ -0,0 +1,5 @@
